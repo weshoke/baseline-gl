@@ -19,14 +19,26 @@ add_library(glad STATIC
     ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw/deps/glad.c)
 target_include_directories(glad PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw/deps)
 
-set(OPENGL_DEPS
+set(OPENGL_INCLUDES
+    ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw/include
+)
+set(OPENGL_LIBS
     ${COCOA_LIBRARY}
     ${OPENGL_LIBRARY}
     glfw
     glad
 )
-message(STATUS ${OPENGL_DEPS})
 
+set(BASIC_INCLUDES
+    ${CMAKE_CURRENT_SOURCE_DIR}/vendor/variant/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/vendor/filesystem
+)
+
+set(BASELINE_INCLUDES
+    ${BASIC_INCLUDES}
+    ${OPENGL_INCLUDES}
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 # Examples
 add_subdirectory(examples)
