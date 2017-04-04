@@ -10,7 +10,22 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "10.10")
 
 
 # Dependencies
-# add_subdirectory(vendor/glfw)
+find_library(COCOA_LIBRARY Cocoa)
+find_library(OPENGL_LIBRARY OpenGL)
+
+add_subdirectory(vendor/glfw)
+
+add_library(glad STATIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw/deps/glad.c)
+target_include_directories(glad PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw/deps)
+
+set(OPENGL_DEPS
+    ${COCOA_LIBRARY}
+    ${OPENGL_LIBRARY}
+    glfw
+    glad
+)
+message(STATUS ${OPENGL_DEPS})
 
 
 # Examples
