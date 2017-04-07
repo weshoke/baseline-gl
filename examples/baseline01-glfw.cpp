@@ -4,6 +4,7 @@
 #include "draw/color.h"
 #include "draw/context.h"
 #include "draw/draw.h"
+#include "gl/vertex_array.h"
 // #include "draw/trackball.h"
 
 using namespace baseline;
@@ -42,6 +43,7 @@ public:
   app::App &app;
   // app::TrackballState trackball_state;
   draw::Camera camera;
+  gl::VertexArray vao_;
 };
 
 int main(void) {
