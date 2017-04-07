@@ -2,6 +2,7 @@
 #define MATH_MATRIX4_H
 
 #include "matrix3.h"
+#include "primitives.h"
 #include "vec.h"
 #include <array>
 
@@ -72,7 +73,8 @@ public:
     auto s = CrossProduct(look, up).Normalized();
     auto u = CrossProduct(s, look).Normalized();
     look = -look;
-    auto t = Vec3((eye <= s)[0], (eye <= u)[0], (eye <= look)[0]);
+    auto t =
+        Vec3(DotProduct(eye, s), DotProduct(eye, u), DotProduct(eye, look));
     return Matrix4(s[0], u[0], look[0], 0.f, s[1], u[1], look[1], 0.f, s[2],
                    u[2], look[2], 0.f, -t[0], -t[1], -t[2], 1.f);
   }

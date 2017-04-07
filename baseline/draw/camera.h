@@ -66,13 +66,13 @@ namespace baseline {
 
             Vec3 Look() const { return (look_at() - eye()).Normalized(); }
             Vec3 Pan() const { return math::CrossProduct(up(), Look()); }
-            template <class Rot>
-            void Spin(const Rot &rot)
-            {
-                auto to_eye = eye() - look_at();
-                eye_ = look_at() + to_eye.Spin(rot);
-                up_ = up_.Spin(rot);
-            }
+            // template <class Rot>
+            // void Spin(const Rot &rot)
+            // {
+            //     auto to_eye = eye() - look_at();
+            //     eye_ = look_at() + to_eye.Spin(rot);
+            //     up_ = up_.Spin(rot);
+            // }
 
             void Translate(const Vec3 &v)
             {
@@ -84,9 +84,15 @@ namespace baseline {
             Matrix4 ProjectionMatrix() const
             {
                 if (mode() == Mode::Projective) {
-                    return Matrix4::Perspective(lens_angle(), aspect(), near(), far());
+                    return Matrix4::Perspective(
+                        lens_angle(), aspect(), frustum().near(), frustum().far());
                 }
-                return Matrix4::Ortho(left(), right(), bottom(), top(), near(), far());
+                return Matrix4::Ortho(frustum().left(),
+                                      frustum().right(),
+                                      frustum().bottom(),
+                                      frustum().top(),
+                                      frustum().near(),
+                                      frustum().far());
             }
 
             Mode mode() const { return mode_; }
@@ -101,6 +107,8 @@ namespace baseline {
             Vec3 eye_;
             Vec3 look_at_;
             Vec3 up_;
+            float lens_angle_;
+            float aspect_;
             Frustum frustum_;
         };
     }
