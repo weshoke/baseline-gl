@@ -37,12 +37,7 @@ namespace baseline {
             , up_(up)
             , lens_angle_(lens_angle)
             , aspect_(aspect)
-            , near_(near)
-            , far_(far)
-            , left_(0.f)
-            , right_(0.f)
-            , bottom_(0.f)
-            , top_(0.f)
+            , frustum_(near, far)
             {
             }
 
