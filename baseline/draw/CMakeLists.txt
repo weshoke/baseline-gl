@@ -6,4 +6,6 @@ target_sources(baseline-gl
     "${CMAKE_CURRENT_SOURCE_DIR}/draw.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/surface.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/surface.h"
+    "${CMAKE_CURRENT_SOURCE_DIR}/uniform_map.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/uniform_map.h"
 )
