@@ -4,7 +4,6 @@
 
 namespace baseline {
     namespace draw {
-
         void ClearWindowWithDepth(std::array<uint32_t, 2> window_size, uint32_t color)
         {
             glViewport(0, 0, window_size[0], window_size[1]);
