@@ -16,10 +16,7 @@ namespace baseline {
             return float(size[0]) / float(size[1]);
         }
 
-        void App::AddSearchPath(filesystem::path path)
-        {
-            return search_paths().AddSearchPath(path);
-        }
+        void App::AddSearchPath(filesystem::path path) { return search_paths().Add(path); }
         filesystem::path App::FindFile(filesystem::path file_name)
         {
             return search_paths().FindFile(file_name);
