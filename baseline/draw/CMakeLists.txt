@@ -1,5 +1,7 @@
 target_sources(baseline-gl
     PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/analyzed_program.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/analyzed_program.h"
     "${CMAKE_CURRENT_SOURCE_DIR}/color.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/draw.cpp"
 )
