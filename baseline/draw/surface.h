@@ -28,11 +28,13 @@ namespace baseline {
             void Draw(const Camera& camera, F&& draw)
             {
                 auto binding = framebuffer_.Bind(GL_FRAMEBUFFER);
-                viz::draw::ClearWindowWithDepth(size(), clear_color());
-                viz::draw::Context::Get().ApplyCamera(camera);
-                viz::draw::Context::Get().ScreenSize(size());
+                draw::ClearWindowWithDepth(size(), clear_color());
+                draw::Context::Get().ApplyCamera(camera);
+                draw::Context::Get().ScreenSize(size());
                 draw();
             }
+
+            std::vector<Vec4> Image();
 
             uint32_t PixelCount() const { return size()[0] * size()[1]; }
             Context::TextureRef ColorBuffer(uint32_t idx = 0) { return color_buffers_[idx]; }
