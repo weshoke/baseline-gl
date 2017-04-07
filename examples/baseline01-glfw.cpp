@@ -1,6 +1,6 @@
 #include "app/app.h"
 // #include "app/trackball_state.h"
-// #include "draw/camera.h"
+#include "draw/camera.h"
 #include "draw/color.h"
 #include "draw/draw.h"
 // #include "draw/trackball.h"
@@ -10,8 +10,7 @@ using namespace baseline;
 class Demo {
 public:
   Demo(app::App &app)
-      : app(app)
-  // , camera(draw::Camera::Default())
+      : app(app), camera(draw::Camera::Default())
   // , trackball(draw::Trackball(1.3f, 1.f, 10.f))
   {}
 
@@ -22,11 +21,11 @@ public:
   }
 
   void Cursor(double xpos, double ypos) {
-    // using Vec2 = viz::draw::Vec2;
-    // auto window_size = app.WindowSize();
-    // auto mouse_pos = Vec2((float(xpos) / float(window_size[0])) * 2.f - 1.f,
-    //                       (float(ypos) / float(window_size[0])) * 2.f - 1.f);
-    //
+    using Vec2 = draw::Vec2;
+    auto window_size = app.WindowSize();
+    auto mouse_pos = Vec2((float(xpos) / float(window_size[0])) * 2.f - 1.f,
+                          (float(ypos) / float(window_size[0])) * 2.f - 1.f);
+
     // trackball_state.Cursor(camera, trackball, mouse_pos);
   }
 
@@ -41,7 +40,7 @@ public:
 
   app::App &app;
   // app::TrackballState trackball_state;
-  // draw::Camera camera;
+  draw::Camera camera;
 };
 
 int main(void) {
