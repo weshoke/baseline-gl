@@ -37,8 +37,15 @@ set(BASIC_INCLUDES
 set(BASELINE_INCLUDES
     ${BASIC_INCLUDES}
     ${OPENGL_INCLUDES}
-    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/deps
+    ${CMAKE_CURRENT_SOURCE_DIR}/baseline
 )
+
+add_library(baseline STATIC "")
+target_compile_options(baseline PUBLIC ${DEBUG_COMPILER_OPTIONS})
+target_include_directories(baseline PRIVATE ${BASELINE_INCLUDES})
+target_link_libraries(baseline ${OPENGL_LIBS})
+add_subdirectory(baseline)
 
 # Examples
 add_subdirectory(examples)
