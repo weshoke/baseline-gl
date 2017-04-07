@@ -9,7 +9,6 @@
 #include "search_paths.h"
 #include <array>
 #include <iostream>
-#include <vector>
 
 namespace baseline {
 namespace app {
