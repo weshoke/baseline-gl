@@ -41,10 +41,10 @@ set(BASELINE_INCLUDES
     ${CMAKE_CURRENT_SOURCE_DIR}/baseline
 )
 
-add_library(baseline STATIC "")
-target_compile_options(baseline PUBLIC ${DEBUG_COMPILER_OPTIONS})
-target_include_directories(baseline PRIVATE ${BASELINE_INCLUDES})
-target_link_libraries(baseline ${OPENGL_LIBS})
+add_library(baseline-gl STATIC "")
+target_compile_options(baseline-gl PUBLIC ${DEBUG_COMPILER_OPTIONS})
+target_include_directories(baseline-gl PRIVATE ${BASELINE_INCLUDES})
+target_link_libraries(baseline-gl ${OPENGL_LIBS})
 add_subdirectory(baseline)
 
 # Examples
