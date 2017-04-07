@@ -14,16 +14,8 @@
 namespace baseline {
 namespace app {
 class App {
-public:
-  using Ptr = std::unique_ptr<App, std::add_pointer_t<void(App *)>>;
-
 private:
   App(GLFWwindow *window) : window_(window, glfwDestroyWindow) {}
-
-  static Ptr Create(GLFWwindow *window) {
-    // Terminate the app using GLFW API on free
-    return Ptr(new App(window), [](App *app) { glfwTerminate(); });
-  }
 
   template <class Kernel> static Kernel *Get(GLFWwindow *window) {
     return static_cast<Kernel *>(glfwGetWindowUserPointer(window));
