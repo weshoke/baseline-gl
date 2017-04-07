@@ -2,6 +2,7 @@
 // #include "app/trackball_state.h"
 #include "draw/camera.h"
 #include "draw/color.h"
+#include "draw/context.h"
 #include "draw/draw.h"
 // #include "draw/trackball.h"
 
