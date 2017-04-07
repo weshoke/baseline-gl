@@ -10,8 +10,7 @@ namespace baseline {
     namespace gl {
         class VertexArrayBinding : public Binding<VertexArrayBinding> {
            private:
-            using Base = Binding<VertexArrayBinding>;
-            friend Base;
+            friend Binding<VertexArrayBinding>;
             static void Bind(GLuint id) { glBindVertexArray(id); }
         };
 
