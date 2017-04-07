@@ -4,7 +4,6 @@
 #include "binding.h"
 #include "glad/glad.h"
 #include "name.h"
-#include <utility>
 
 namespace baseline {
     namespace gl {

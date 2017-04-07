@@ -1,6 +1,8 @@
 #ifndef BASELINE_GL_BINDING_H
 #define BASELINE_GL_BINDING_H
 
+#include <utility>
+
 namespace baseline {
     namespace gl {
         template <class Entity>
