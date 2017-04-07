@@ -11,11 +11,9 @@ namespace baseline {
            public:
             AnalyzedProgram(gl::Program &&program);
             AnalyzedProgram(AnalyzedProgram &&src);
-
             AnalyzedProgram &operator=(AnalyzedProgram &&src);
 
             gl::Uniform GetUniform(const std::string &name);
-
             gl::Program &program() { return program_; }
             operator GLuint() { return GLuint(program()); }
            private:
